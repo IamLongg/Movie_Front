@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
   font-family:
     Inter,
     ui-sans-serif,
@@ -10,8 +10,8 @@
     BlinkMacSystemFont,
     'Segoe UI',
     sans-serif;
-  background-color: #f8fafc;
-  color: #0f172a;
+  background-color: #000000;
+  color: #ffffff;
 }
 
 html {
@@ -21,7 +21,8 @@ html {
 body {
   min-height: 100vh;
   margin: 0;
-  background: #f8fafc;
+  background: #000000;
+  color: #ffffff;
 }
 
 * {
