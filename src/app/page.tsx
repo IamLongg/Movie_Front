@@ -1,13 +1,6 @@
-import HeroSection from '@/components/HeroSection';
-import MovieGrid from '@/components/MovieGrid';
-import {
-  featuredMovie,
-  topMovies,
-  actionMovies,
-  dramMovies,
-  comedyMovies,
-  vietnameseMovies,
-} from '@/lib/movies';
+import HeroSection from "@/components/HeroSection";
+import MovieGrid from "@/components/MovieGrid";
+import { featuredMovie, topMovies, actionMovies, dramMovies, comedyMovies, vietnameseMovies } from "@/lib/movies";
 
 export default function HomePage() {
   return (

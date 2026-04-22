@@ -1,5 +1,5 @@
-import { Movie } from '@/types';
-import MovieCard from './MovieCard';
+import { Movie } from "@/types";
+import MovieCard from "./MovieCard";
 
 interface MovieGridProps {
   movies: Movie[];
@@ -8,12 +8,7 @@ interface MovieGridProps {
   viewAllLink?: string;
 }
 
-export default function MovieGrid({
-  movies,
-  title,
-  showViewAll = false,
-  viewAllLink,
-}: MovieGridProps) {
+export default function MovieGrid({ movies, title, showViewAll = false, viewAllLink }: MovieGridProps) {
   return (
     <section className="py-8 px-4 md:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">

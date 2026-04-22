@@ -1,7 +1,7 @@
-import { allMovies, topMovies } from '@/lib/movies';
-import Image from 'next/image';
-import Link from 'next/link';
-import MovieGrid from '@/components/MovieGrid';
+import { allMovies, topMovies } from "@/lib/movies";
+import Image from "next/image";
+import Link from "next/link";
+import MovieGrid from "@/components/MovieGrid";
 
 interface MovieDetailPageProps {
   params: {
@@ -18,18 +18,14 @@ export default function MovieDetailPage({ params }: MovieDetailPageProps) {
         <div className="text-center">
           <h1 className="text-4xl font-bold text-white mb-4">Không tìm thấy phim</h1>
           <Link href="/">
-            <button className="px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700">
-              Quay lại trang chủ
-            </button>
+            <button className="px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700">Quay lại trang chủ</button>
           </Link>
         </div>
       </div>
     );
   }
 
-  const similarMovies = topMovies.filter(
-    (m) => m.id !== movie.id && m.genre.some((g) => movie.genre.includes(g))
-  );
+  const similarMovies = topMovies.filter((m) => m.id !== movie.id && m.genre.some((g) => movie.genre.includes(g)));
 
   return (
     <main className="min-h-screen bg-black">
@@ -46,7 +42,7 @@ export default function MovieDetailPage({ params }: MovieDetailPageProps) {
       <div className="relative h-96 md:h-[500px] overflow-hidden bg-linear-to-b from-gray-900 to-black">
         <div className="absolute inset-0">
           <Image
-            src={movie.image || ''}
+            src={movie.image || ""}
             alt={movie.title}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
@@ -60,18 +56,12 @@ export default function MovieDetailPage({ params }: MovieDetailPageProps) {
         <div className="relative h-full flex items-center px-4 md:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto w-full">
             <div className="max-w-2xl">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
-                {movie.title}
-              </h1>
-              {movie.titleEn && (
-                <p className="text-lg md:text-xl text-gray-300 mb-4">{movie.titleEn}</p>
-              )}
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">{movie.title}</h1>
+              {movie.titleEn && <p className="text-lg md:text-xl text-gray-300 mb-4">{movie.titleEn}</p>}
 
               <div className="flex items-center gap-4 mb-6 flex-wrap">
-                <span className="inline-block px-3 py-1 bg-red-600 text-white rounded">
-                  {movie.year}
-                </span>
-                <span className="text-gray-300">{movie.genre.join(', ')}</span>
+                <span className="inline-block px-3 py-1 bg-red-600 text-white rounded">{movie.year}</span>
+                <span className="text-gray-300">{movie.genre.join(", ")}</span>
                 {movie.rating && (
                   <div className="flex items-center gap-2">
                     <span className="text-yellow-400 text-xl">★</span>
@@ -81,12 +71,8 @@ export default function MovieDetailPage({ params }: MovieDetailPageProps) {
               </div>
 
               <div className="flex gap-4">
-                <button className="px-8 py-3 bg-red-600 text-white rounded-lg font-bold hover:bg-red-700 transition">
-                  Xem ngay
-                </button>
-                <button className="px-8 py-3 bg-gray-700 text-white rounded-lg font-bold hover:bg-gray-600 transition">
-                  Trailer
-                </button>
+                <button className="px-8 py-3 bg-red-600 text-white rounded-lg font-bold hover:bg-red-700 transition">Xem ngay</button>
+                <button className="px-8 py-3 bg-gray-700 text-white rounded-lg font-bold hover:bg-gray-600 transition">Trailer</button>
               </div>
             </div>
           </div>
@@ -101,7 +87,7 @@ export default function MovieDetailPage({ params }: MovieDetailPageProps) {
             <div className="md:col-span-1">
               <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg">
                 <Image
-                  src={movie.image || ''}
+                  src={movie.image || ""}
                   alt={movie.title}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
@@ -140,10 +126,7 @@ export default function MovieDetailPage({ params }: MovieDetailPageProps) {
                   <h3 className="text-lg font-bold text-white mb-3">Thể loại</h3>
                   <div className="flex flex-wrap gap-2">
                     {movie.genre.map((g) => (
-                      <span
-                        key={g}
-                        className="px-4 py-2 bg-gray-800 text-gray-200 rounded-lg hover:bg-gray-700 cursor-pointer transition"
-                      >
+                      <span key={g} className="px-4 py-2 bg-gray-800 text-gray-200 rounded-lg hover:bg-gray-700 cursor-pointer transition">
                         {g}
                       </span>
                     ))}
@@ -153,9 +136,7 @@ export default function MovieDetailPage({ params }: MovieDetailPageProps) {
                 <div>
                   <h3 className="text-lg font-bold text-white mb-3">Đánh giá</h3>
                   <div className="flex items-center gap-4">
-                    <div className="text-5xl font-bold text-yellow-400">
-                      {movie.rating || '8.0'}
-                    </div>
+                    <div className="text-5xl font-bold text-yellow-400">{movie.rating || "8.0"}</div>
                     <div className="text-gray-300">
                       <p className="text-sm">Đánh giá từ</p>
                       <p className="text-lg font-semibold">Khán giả</p>

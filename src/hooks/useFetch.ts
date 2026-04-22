@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from 'react';
+import { useEffect, useReducer } from "react";
 
 type FetchState<T> = {
   data: T | null;
@@ -6,18 +6,15 @@ type FetchState<T> = {
   error: string | null;
 };
 
-type FetchAction<T> =
-  | { type: 'start' }
-  | { type: 'success'; payload: T }
-  | { type: 'failure'; error: string };
+type FetchAction<T> = { type: "start" } | { type: "success"; payload: T } | { type: "failure"; error: string };
 
 function fetchReducer<T>(state: FetchState<T>, action: FetchAction<T>): FetchState<T> {
   switch (action.type) {
-    case 'start':
+    case "start":
       return { ...state, loading: true, error: null };
-    case 'success':
+    case "success":
       return { data: action.payload, loading: false, error: null };
-    case 'failure':
+    case "failure":
       return { ...state, loading: false, error: action.error };
     default:
       return state;
@@ -34,19 +31,19 @@ export function useFetch<T>(fetcher: () => Promise<T>) {
   useEffect(() => {
     let isMounted = true;
 
-    dispatch({ type: 'start' });
+    dispatch({ type: "start" });
 
     fetcher()
       .then((result) => {
         if (isMounted) {
-          dispatch({ type: 'success', payload: result });
+          dispatch({ type: "success", payload: result });
         }
       })
       .catch((error) => {
         if (isMounted) {
           dispatch({
-            type: 'failure',
-            error: error instanceof Error ? error.message : 'An unknown error occurred.',
+            type: "failure",
+            error: error instanceof Error ? error.message : "An unknown error occurred.",
           });
         }
       });

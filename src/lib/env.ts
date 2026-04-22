@@ -1,8 +1,8 @@
-import { z } from 'zod';
+import { z } from "zod";
 
 const envSchema = z.object({
-  NEXT_PUBLIC_API_BASE_URL: z.string().url().default('https://jsonplaceholder.typicode.com'),
-  NEXT_PUBLIC_APP_NAME: z.string().default('PHE Film Boilerplate'),
+  NEXT_PUBLIC_API_BASE_URL: z.string().url().default("https://jsonplaceholder.typicode.com"),
+  NEXT_PUBLIC_APP_NAME: z.string().default("PHE Film Boilerplate"),
 });
 
 const rawEnv = {
