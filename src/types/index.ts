@@ -10,3 +10,25 @@ export type Post = {
   title: string;
   body: string;
 };
+
+export type Movie = {
+  id: string;
+  title: string;
+  titleEn?: string;
+  genre: string[];
+  year: number;
+  rating?: number;
+  description: string;
+  image: string;
+  season?: string;
+  episode?: string;
+  country: string;
+  views?: number;
+};
+
+export type MovieCategory = {
+  id: string;
+  name: string;
+  slug: string;
+  movies: Movie[];
+};
