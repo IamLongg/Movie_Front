@@ -8,17 +8,18 @@ interface HeroSectionProps {
 
 export default function HeroSection({ movie }: HeroSectionProps) {
   return (
-    <section className="relative h-96 md:h-[500px] overflow-hidden bg-gradient-to-b from-gray-900 to-black">
+    <section className="relative h-96 md:h-[500px] overflow-hidden bg-linear-to-b from-gray-900 to-black">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src={movie.image}
+          src={movie.image || ''}
           alt={movie.title}
           fill
           className="object-cover opacity-40"
           priority
+          unoptimized
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/50 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-r from-black via-black/50 to-transparent" />
       </div>
 
       {/* Content */}
@@ -30,18 +31,14 @@ export default function HeroSection({ movie }: HeroSectionProps) {
             </h1>
 
             {movie.titleEn && (
-              <p className="text-lg md:text-xl text-gray-300 mb-4">
-                {movie.titleEn}
-              </p>
+              <p className="text-lg md:text-xl text-gray-300 mb-4">{movie.titleEn}</p>
             )}
 
             <div className="flex items-center gap-4 mb-6 flex-wrap">
               <span className="inline-block px-3 py-1 bg-red-600 text-white rounded font-semibold">
                 {movie.year}
               </span>
-              <span className="text-gray-300">
-                {movie.genre.join(', ')}
-              </span>
+              <span className="text-gray-300">{movie.genre.join(', ')}</span>
               {movie.rating && (
                 <div className="flex items-center gap-2">
                   <span className="text-yellow-400 text-xl">★</span>
@@ -50,9 +47,7 @@ export default function HeroSection({ movie }: HeroSectionProps) {
               )}
             </div>
 
-            <p className="text-gray-300 text-lg max-w-xl mb-8 line-clamp-3">
-              {movie.description}
-            </p>
+            <p className="text-gray-300 text-lg max-w-xl mb-8 line-clamp-3">{movie.description}</p>
 
             <div className="flex gap-4">
               <Link href={`/movie/${movie.id}`}>

@@ -1,5 +1,3 @@
-'use client';
-
 import { allMovies, topMovies } from '@/lib/movies';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -12,7 +10,7 @@ interface MovieDetailPageProps {
 }
 
 export default function MovieDetailPage({ params }: MovieDetailPageProps) {
-  const movie = allMovies.find((m) => m.id === params.id);
+  const movie = allMovies.find((m) => m.id === params?.id);
 
   if (!movie) {
     return (
@@ -30,9 +28,7 @@ export default function MovieDetailPage({ params }: MovieDetailPageProps) {
   }
 
   const similarMovies = topMovies.filter(
-    (m) =>
-      m.id !== movie.id &&
-      m.genre.some((g) => movie.genre.includes(g))
+    (m) => m.id !== movie.id && m.genre.some((g) => movie.genre.includes(g))
   );
 
   return (
@@ -47,16 +43,18 @@ export default function MovieDetailPage({ params }: MovieDetailPageProps) {
       </div>
 
       {/* Movie Header */}
-      <div className="relative h-96 md:h-[500px] overflow-hidden bg-gradient-to-b from-gray-900 to-black">
+      <div className="relative h-96 md:h-[500px] overflow-hidden bg-linear-to-b from-gray-900 to-black">
         <div className="absolute inset-0">
           <Image
-            src={movie.image}
+            src={movie.image || ''}
             alt={movie.title}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
             className="object-cover opacity-30"
             priority
+            unoptimized
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/50 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-r from-black via-black/50 to-transparent" />
         </div>
 
         <div className="relative h-full flex items-center px-4 md:px-6 lg:px-8">
@@ -103,10 +101,12 @@ export default function MovieDetailPage({ params }: MovieDetailPageProps) {
             <div className="md:col-span-1">
               <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg">
                 <Image
-                  src={movie.image}
+                  src={movie.image || ''}
                   alt={movie.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
                   className="object-cover"
+                  unoptimized
                 />
               </div>
 
@@ -169,12 +169,7 @@ export default function MovieDetailPage({ params }: MovieDetailPageProps) {
       </section>
 
       {/* Similar Movies */}
-      {similarMovies.length > 0 && (
-        <MovieGrid
-          title="Phim tương tự"
-          movies={similarMovies}
-        />
-      )}
+      {similarMovies.length > 0 && <MovieGrid title="Phim tương tự" movies={similarMovies} />}
     </main>
   );
 }

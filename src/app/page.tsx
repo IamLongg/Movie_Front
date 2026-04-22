@@ -1,5 +1,3 @@
-'use client';
-
 import HeroSection from '@/components/HeroSection';
 import MovieGrid from '@/components/MovieGrid';
 import {
@@ -18,19 +16,10 @@ export default function HomePage() {
       <HeroSection movie={featuredMovie} />
 
       {/* Top Movies */}
-      <MovieGrid
-        title="Phim Đang Hot"
-        movies={topMovies}
-        showViewAll
-        viewAllLink="/movies"
-      />
+      <MovieGrid title="Phim Đang Hot" movies={topMovies} showViewAll viewAllLink="/movies" />
 
       {/* Action Movies */}
-      <MovieGrid
-        title="Hành Động Bom Tấn"
-        movies={actionMovies.slice(0, 10)}
-        showViewAll
-      />
+      <MovieGrid title="Hành Động Bom Tấn" movies={actionMovies.slice(0, 10)} showViewAll />
 
       {/* Drama Movies */}
       <MovieGrid title="Phim Chính Kịch" movies={dramMovies.slice(0, 10)} />
@@ -39,11 +28,7 @@ export default function HomePage() {
       <MovieGrid title="Phim Hài Hước" movies={comedyMovies.slice(0, 10)} />
 
       {/* Vietnamese Movies */}
-      <MovieGrid
-        title="Phim Việt Nam"
-        movies={vietnameseMovies.slice(0, 10)}
-        showViewAll
-      />
+      <MovieGrid title="Phim Việt Nam" movies={vietnameseMovies.slice(0, 10)} showViewAll />
     </main>
   );
 }

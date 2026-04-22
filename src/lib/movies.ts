@@ -49,8 +49,7 @@ export const [featuredMovie, ...allMovies]: Movie[] = [
     titleEn: 'MF Ghost (Season 2)',
     genre: ['Hành Động', 'Anime'],
     year: 2023,
-    description:
-      'Cuộc đua siêu xe đầy kịch tính và bí ẩn trên những con đường đêm của Nhật Bản.',
+    description: 'Cuộc đua siêu xe đầy kịch tính và bí ẩn trên những con đường đêm của Nhật Bản.',
     image: 'https://img.ophim.live/uploads/movies/mf-ghost-poster.jpg',
     episode: 'Phần 2 | Trailer',
     country: 'Nhật Bản',
@@ -236,8 +235,7 @@ export const [featuredMovie, ...allMovies]: Movie[] = [
     genre: ['Hài Hước', 'Tình Cảm'],
     year: 2024,
     rating: 7.0,
-    description:
-      'Một phim Thái về những phép thuật lạ kỳ và những bất ngờ trong tình yêu.',
+    description: 'Một phim Thái về những phép thuật lạ kỳ và những bất ngờ trong tình yêu.',
     image: 'https://img.ophim.live/uploads/movies/magic-move-poster.jpg',
     episode: 'Full',
     country: 'Thái Lan',
@@ -264,8 +262,7 @@ export const [featuredMovie, ...allMovies]: Movie[] = [
     genre: ['Chính kịch', 'Tình Cảm'],
     year: 2020,
     rating: 7.9,
-    description:
-      'Phần cuối cùng của bộ phim chuyển thể từ tiểu thuyết lãng mạn Gabriel Inferno.',
+    description: 'Phần cuối cùng của bộ phim chuyển thể từ tiểu thuyết lãng mạn Gabriel Inferno.',
     image: 'https://img.ophim.live/uploads/movies/giao-su-gabriel-3-poster.jpg',
     episode: 'Full',
     country: 'Canada',
@@ -293,9 +290,5 @@ export const actionMovies = allMovies.filter((m) =>
 export const dramMovies = allMovies.filter((m) =>
   m.genre.some((g) => ['Chính kịch', 'Tình Cảm'].includes(g))
 );
-export const comedyMovies = allMovies.filter((m) =>
-  m.genre.some((g) => g === 'Hài Hước')
-);
-export const vietnameseMovies = allMovies.filter(
-  (m) => m.country === 'Việt Nam'
-);
+export const comedyMovies = allMovies.filter((m) => m.genre.some((g) => g === 'Hài Hước'));
+export const vietnameseMovies = allMovies.filter((m) => m.country === 'Việt Nam');

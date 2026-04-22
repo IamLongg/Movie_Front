@@ -42,7 +42,9 @@ src/
 ## Components
 
 ### HeroSection
+
 Displays a featured movie with:
+
 - Large background image
 - Movie title and English title
 - Genre and rating badges
@@ -53,7 +55,9 @@ Displays a featured movie with:
 ```
 
 ### MovieCard
+
 Interactive movie card with hover effects showing:
+
 - Movie poster
 - Title and English title
 - Year and rating
@@ -61,18 +65,17 @@ Interactive movie card with hover effects showing:
 - Watch button on hover
 
 ### MovieGrid
+
 Displays movies in a responsive grid with optional title and "Xem tất cả" link.
 
 ```tsx
-<MovieGrid
-  title="Hành Động Bom Tấn"
-  movies={actionMovies}
-  showViewAll
-/>
+<MovieGrid title="Hành Động Bom Tấn" movies={actionMovies} showViewAll />
 ```
 
 ### Header
+
 Sticky navigation with:
+
 - Logo
 - Search bar
 - Navigation links
@@ -83,13 +86,13 @@ Sticky navigation with:
 ```typescript
 type Movie = {
   id: string;
-  title: string;           // Vietnamese title
-  titleEn?: string;        // English title
+  title: string; // Vietnamese title
+  titleEn?: string; // English title
   genre: string[];
   year: number;
   rating?: number;
   description: string;
-  image: string;           // Poster URL
+  image: string; // Poster URL
   season?: string;
   episode?: string;
   country: string;
@@ -100,6 +103,7 @@ type Movie = {
 ## Sample Data
 
 The project includes 20 pre-configured movies with realistic data:
+
 - Featured movie: "Bà Bầu Chạy Trốn" (Pregnant and Run)
 - Movies from various genres: Action, Drama, Comedy, Horror
 - Movies from different countries: USA, Korea, China, Vietnam, Thailand, Japan, Hong Kong
@@ -107,6 +111,7 @@ The project includes 20 pre-configured movies with realistic data:
 ## Tailwind CSS Configuration
 
 Dark theme implemented with:
+
 - Black background throughout (`bg-black`)
 - Gray color scale for text and elements
 - Red accent color for CTAs (`bg-red-600`)
@@ -115,6 +120,7 @@ Dark theme implemented with:
 ## Pages
 
 ### Home Page (`/`)
+
 - Hero section with featured movie
 - Phim Đang Hot (Top movies)
 - Hành Động Bom Tấn (Action movies)
@@ -123,6 +129,7 @@ Dark theme implemented with:
 - Phim Việt Nam (Vietnamese movies)
 
 ### Movie Detail Page (`/movie/[id]`)
+
 - Full movie information
 - Related movies based on genre
 - Movie metadata (year, country, rating, views)
@@ -130,6 +137,7 @@ Dark theme implemented with:
 - Watch and trailer buttons
 
 ### All Movies Page (`/movies`)
+
 - Complete movie catalog
 - Grid layout of all movies
 - Searchable and browsable
@@ -137,11 +145,13 @@ Dark theme implemented with:
 ## Getting Started
 
 1. **Install dependencies**:
+
    ```bash
    npm install
    ```
 
 2. **Run development server**:
+
    ```bash
    npm run dev
    ```
@@ -180,6 +190,7 @@ npm run start
 ## Customization
 
 ### Add New Movies
+
 Edit `src/lib/movies.ts` and add movies to the `allMovies` array:
 
 ```typescript
@@ -197,20 +208,21 @@ Edit `src/lib/movies.ts` and add movies to the `allMovies` array:
 ```
 
 ### Customize Styles
+
 - Dark theme colors in `src/app/globals.css`
 - Component styles using Tailwind classes
 - Responsive breakpoints: `sm:`, `md:`, `lg:`, `xl:`
 
 ### Add Categories
+
 Create new category exports in `src/lib/movies.ts`:
 
 ```typescript
-export const horrorMovies = allMovies.filter((m) =>
-  m.genre.some((g) => g === 'Kinh Dị')
-);
+export const horrorMovies = allMovies.filter((m) => m.genre.some((g) => g === 'Kinh Dị'));
 ```
 
 Then use in home page:
+
 ```tsx
 <MovieGrid title="Phim Kinh Dị" movies={horrorMovies} />
 ```

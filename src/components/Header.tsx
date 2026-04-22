@@ -15,9 +15,7 @@ export default function Header() {
             <div className="flex items-center justify-center w-8 h-8 bg-red-600 rounded-lg">
               <span className="font-bold text-white">🎬</span>
             </div>
-            <span className="font-bold text-xl text-white hidden sm:inline">
-              Movie
-            </span>
+            <span className="font-bold text-xl text-white hidden sm:inline">Movie</span>
           </Link>
 
           {/* Search Bar */}
@@ -46,10 +44,7 @@ export default function Header() {
           </nav>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-white"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
+          <button className="md:hidden text-white" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 strokeLinecap="round"
