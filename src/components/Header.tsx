@@ -16,7 +16,7 @@ export default function Header() {
               <span className="font-bold text-white">🎬</span>
             </div>
             <span className="font-bold text-xl text-white hidden sm:inline">
-              Thúng Phim
+              Movie
             </span>
           </Link>
 

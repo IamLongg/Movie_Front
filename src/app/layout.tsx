@@ -3,7 +3,7 @@ import './globals.css';
 import Header from '@/components/Header';
 
 export const metadata: Metadata = {
-  title: 'Thúng Phim - Xem Phim Online Miễn Phí',
+  title: 'Movie - Xem Phim Online Miễn Phí',
   description:
     'Xem phim online miễn phí với chất lượng cao, cập nhật liên tục. Phim Âu Mỹ, Hàn Quốc, Trung Quốc, Việt Nam và nhiều nước khác.',
   keywords: 'xem phim, phim online, phim hay, phim mới, streaming',
