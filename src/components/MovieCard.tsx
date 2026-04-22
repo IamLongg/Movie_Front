@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface MovieCardProps {
-  movie: Moviesa;
+  movie: Movie;
 }
 
 export default function MovieCard({ movie }: MovieCardProps) {
